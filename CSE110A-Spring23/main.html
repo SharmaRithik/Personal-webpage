@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		/* style for the topic list */
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			cursor: pointer;
+			padding: 10px;
+			border: 1px solid #ccc;
+			background-color: #f6f6f6;
+		}
+		li:hover {
+			background-color: #e2e2e2;
+		}
+		/* style for the expanded text */
+		.hidden {
+			display: none;
+			padding: 10px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+<h3>Questions you might have</h3>
+	<ul>
+		<li data-id="topic1">1. How to install docker?</li>
+		<li data-id="topic2">2. How to check python installation  and it's version.</li>
+		<li data-id="topic3">3. How to install python?</li>
+	</ul>
+	<div id="topic1" class="hidden">
+                <p><p>Official docker documentation for all distributions - <a href = "https://docs.docker.com/engine/install/">Here</a></p>
+                <p><b>Linux distributions - <a href = "https://docs.docker.com/desktop/install/ubuntu/">Here</a></b></p>
+                <p><b>macOS distributions</b></p>
+                <p><b>Windows distributions</b></p>
+	</div>
+	<div id="topic2" class="hidden">
+		<p>This is generalized among the other distributions and can be checked by running a small command on a Linux terminal, macOS terminal, and windows cmd.</p>
+                <code>python --version</code>
+		<p>This results into:</p>
+                <code>Python 3.9.13</code>
+	</div>
+	<div id="topic3" class="hidden">
+                <p><b>Linux distributions</b></p>
+                <code>
+                sudo apt-get install python  
+                </code>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// show/hide the expanded text when clicking on a topic
+			$("li").click(function(){
+				var id = $(this).data("id");
+				$("#"+id).slideToggle().insertAfter($(this));
+			});
+		});
+	</script>
+</body>
+</html>
+
